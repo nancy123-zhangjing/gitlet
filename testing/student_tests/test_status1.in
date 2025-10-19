@@ -1,0 +1,46 @@
+I definitions.inc
+> init
+<<<
+> branch zebra
+<<<
+> branch apple
+<<<
+> status
+=== Branches ===
+apple
+*master
+zebra
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
++ zebra.txt wug.txt
+> add zebra.txt
+<<<
++ apple.txt notwug.txt
+> add apple.txt
+<<<
+> status
+=== Branches ===
+apple
+*master
+zebra
+
+=== Staged Files ===
+apple.txt
+zebra.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+

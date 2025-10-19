@@ -1,0 +1,38 @@
+I definitions.inc
+> init
+<<<
+> branch dev
+<<<
+> checkout dev
+<<<
++ dev_file.txt wug.txt
+> add dev_file.txt
+<<<
+> commit "commit on dev"
+<<<
+> checkout master
+<<<
+> rm-branch dev
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+> global-log
+(?s)(?=.*initial commit)(?=.*commit on dev)(?:${COMMIT_LOG}\n?){2}
+<<<*
+> rm-branch non-existent-branch
+A branch with that name does not exist.
+<<<
+> rm-branch master
+Cannot remove the current branch.
+<<<

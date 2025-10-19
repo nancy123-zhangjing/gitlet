@@ -1,0 +1,43 @@
+I definitions.inc
+# Rule 6: Present at split, unmodified in current, absent in given -> file is removed.
+> init
+<<<
++ file.txt wug.txt
+> add file.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
++ master-dummy.txt dummy.txt
+> add master-dummy.txt
+<<<
+> commit "master changes to create divergence"
+<<<
+> checkout other
+<<<
+- file.txt
+> rm file.txt
+<<<
+> commit "other removes file"
+<<<
+> checkout master
+<<<
+> merge other
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+* file.txt
+E master-dummy.txt

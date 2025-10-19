@@ -1,0 +1,53 @@
+I definitions.inc
+#Test `log` only displays the history of the current branch
+> init
+<<<
++ base.txt wug.txt
+> add base.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
++ master_file.txt wug.txt
+> add master_file.txt
+<<<
+> commit "master only"
+<<<
+> checkout other
+<<<
++ other_file.txt wug.txt
+> add other_file.txt
+<<<
+> commit "other only"
+<<<
+> log
+===
+${COMMIT_HEAD}
+other only
+
+===
+${COMMIT_HEAD}
+base
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> checkout master
+<<<
+> log
+===
+${COMMIT_HEAD}
+master only
+
+===
+${COMMIT_HEAD}
+base
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

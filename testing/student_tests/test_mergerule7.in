@@ -1,0 +1,59 @@
+I definitions.inc
+# Rule 8: Files modified in different ways are in conflict. Commit contains conflict markers.
+> init
+<<<
++ a.txt wug.txt
++ b.txt wug.txt
+> add a.txt
+<<<
+> add b.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
+# Modify a.txt in master
++ a.txt notwug.txt
+> add a.txt
+<<<
+# Remove b.txt in master
+- b.txt
+> rm b.txt
+<<<
+> commit "master changes"
+<<<
+> checkout other
+<<<
+# Modify a.txt in other differently
++ a.txt wug2.txt
+> add a.txt
+<<<
+# Modify b.txt in other
++ b.txt notwug.txt
+> add b.txt
+<<<
+> commit "other changes"
+<<<
+> checkout master
+<<<
+> merge other
+Encountered a merge conflict.
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+a.txt
+b.txt
+
+<<<
+# = a.txt merge1.txt
+= b.txt merge2.txt

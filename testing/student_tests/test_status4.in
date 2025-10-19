@@ -1,0 +1,22 @@
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
++ a.txt notwug.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+a.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+a.txt (modified)
+
+=== Untracked Files ===
+
+<<<

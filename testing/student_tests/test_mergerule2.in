@@ -1,0 +1,43 @@
+I definitions.inc
+# Rule 2: Modified in current, not in given -> file stays as is and is included in commit.
+> init
+<<<
++ file.txt wug.txt
+> add file.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
++ file.txt notwug.txt
+> add file.txt
+<<<
+> commit "master changes"
+<<<
+> checkout other
+<<<
++ other-dummy.txt dummy.txt
+> add other-dummy.txt
+<<<
+> commit "other changes to create divergence"
+<<<
+> checkout master
+<<<
+> merge other
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+= file.txt notwug.txt
+E other-dummy.txt

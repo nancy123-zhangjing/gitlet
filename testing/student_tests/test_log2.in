@@ -1,0 +1,44 @@
+I definitions.inc
+> init
+<<<
++ base.txt wug.txt
+> add base.txt
+<<<
+> commit "base"
+<<<
+> branch dev
+<<<
++ master_change.txt wug.txt
+> add master_change.txt
+<<<
+> commit "master change"
+<<<
+> checkout dev
+<<<
++ dev_change.txt wug.txt
+> add dev_change.txt
+<<<
+> commit "dev change"
+<<<
+> checkout master
+<<<
+> merge dev
+<<<
+> log
+===
+${COMMIT_HEAD}
+Merged dev into master.
+
+===
+${COMMIT_HEAD}
+master change
+
+===
+${COMMIT_HEAD}
+base
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

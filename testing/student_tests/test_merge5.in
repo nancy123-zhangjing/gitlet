@@ -1,0 +1,17 @@
+> init
+<<<
++ k.txt wug.txt
+> add k.txt
+<<<
+> commit "base"
+<<<
+> branch dev
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "master changes"
+<<<
+> merge dev
+Given branch is an ancestor of the current branch.
+<<<

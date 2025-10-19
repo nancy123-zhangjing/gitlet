@@ -1,0 +1,36 @@
+I definitions.inc
+> init
+<<<
++ k.txt wug.txt
+> add k.txt
+<<<
+> commit "base"
+<<<
+> branch dev
+<<<
+> checkout dev
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "dev changes"
+<<<
+> checkout master
+<<<
+> merge dev
+Current branch fast-forwarded.
+<<<
+> log
+===
+${COMMIT_HEAD}
+dev changes
+
+===
+${COMMIT_HEAD}
+base
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

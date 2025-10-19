@@ -1,0 +1,42 @@
+I definitions.inc
+# Rule 3: Modified in both branches in the same way -> file is updated and included in commit.
+> init
+<<<
++ file.txt wug.txt
+> add file.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
++ file.txt notwug.txt
+> add file.txt
+<<<
+> commit "master changes"
+<<<
+> checkout other
+<<<
++ file.txt notwug.txt
+> add file.txt
+<<<
+> commit "other changes"
+<<<
+> checkout master
+<<<
+> merge other
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+= file.txt notwug.txt

@@ -1,0 +1,9 @@
+> init
+<<<
++ a.txt wug.txt
+> rm a.txt
+No reason to remove the file.
+<<<
+> rm non_existent_file.txt
+No reason to remove the file.
+<<<

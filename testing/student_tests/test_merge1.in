@@ -1,0 +1,24 @@
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "base"
+<<<
+> branch dev
+<<<
++ b.txt wug.txt
+> add b.txt
+<<<
+> merge dev
+You have uncommitted changes.
+<<<
+> commit "add b.txt"
+<<<
+> rm a.txt
+<<<
+> merge dev
+You have uncommitted changes.
+<<<
+
+

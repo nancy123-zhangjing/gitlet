@@ -1,0 +1,95 @@
+I definitions.inc
+> init
+<<<
++ common.txt wug.txt
+> add common.txt
+<<<
+> commit "base commit"
+<<<
+> branch dev
+<<<
++ master_only.txt wug.txt
+> add master_only.txt
+<<<
+> commit "master changes"
+<<<
+> checkout dev
+<<<
++ dev_only.txt notwug.txt
+> add dev_only.txt
+<<<
++ common.txt notwug.txt
+> add common.txt
+<<<
+> commit "dev changes"
+<<<
+> checkout master
+<<<
++ temp.txt wug.txt
+> add temp.txt
+<<<
+> checkout dev
+<<<
+* master_only.txt
+E dev_only.txt
+= common.txt notwug.txt
+> status
+=== Branches ===
+*dev
+master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+temp.txt
+
+<<<
+> log
+===
+${COMMIT_HEAD}
+dev changes
+
+===
+${COMMIT_HEAD}
+base commit
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+D BASE_UID "${2}"
+> reset ${BASE_UID}
+<<<
+* dev_only.txt
+= common.txt wug.txt
+E temp.txt
+> log
+===
+${COMMIT_HEAD}
+base commit
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> status
+=== Branches ===
+*dev
+master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+temp.txt
+
+<<<

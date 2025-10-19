@@ -1,0 +1,39 @@
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "base commit"
+<<<
+> branch dev
+<<<
+> status
+=== Branches ===
+dev
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+> checkout dev
+<<<
+> log
+===
+${COMMIT_HEAD}
+base commit
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> branch dev
+A branch with that name already exists.
+<<<

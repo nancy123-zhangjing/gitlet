@@ -1,0 +1,59 @@
+I definitions.inc
+#add命令测试
+#基本暂存功能
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+a.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+#覆盖已暂存的文件
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "committed second version of a.txt"
+<<<
+= a.txt notwug.txt
+#验证add的文件和当前commit相同，会从暂存区删除
++ b.txt wug.txt
+> add b.txt
+<<<
+> commit "version 1 of b.txt"
+<<<
++ b.txt notwug.txt
+> add b.txt
+<<<
++ b.txt wug.txt
+> add b.txt
+<<<
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+> add non_existent_file.txt
+File does not exist.
+<<<

@@ -1,0 +1,15 @@
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "v1"
+<<<
++ a.txt notwug.txt
+> checkout -- a.txt
+<<<
+= a.txt wug.txt
+> checkout -- b.txt
+File does not exist in that commit.
+<<<

@@ -1,0 +1,38 @@
+I definitions.inc
+# Rule 4 & 5: Not present at split point, present only in current -> file remains and is included in commit.
+> init
+<<<
+> branch other
+<<<
++ master-only.txt wug.txt
+> add master-only.txt
+<<<
+> commit "add master file"
+<<<
+> checkout other
+<<<
++ other-dummy.txt dummy.txt
+> add other-dummy.txt
+<<<
+> commit "other changes to create divergence"
+<<<
+> checkout master
+<<<
+> merge other
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+E master-only.txt
+E other-dummy.txt

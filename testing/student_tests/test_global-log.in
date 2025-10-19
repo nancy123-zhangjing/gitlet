@@ -1,0 +1,25 @@
+I definitions.inc
+> init
+<<<
++ base.txt wug.txt
+> add base.txt
+<<<
+> commit "base"
+<<<
++ master_file.txt wug.txt
+> add master_file.txt
+<<<
+> commit "master only"
+<<<
+> branch dev
+<<<
+> checkout dev
+<<<
++ dev_file.txt notwug.txt
+> add dev_file.txt
+<<<
+> commit "dev only"
+<<<
+> global-log
+(?s)(?=.*initial commit)(?=.*base)(?=.*master only)(?=.*dev only)(?:${COMMIT_LOG}\n?){4}
+<<<*

@@ -1,0 +1,153 @@
+# 这是一个用于全面测试 `add` 命令的脚本文件。
+# 它覆盖了基本功能、覆盖、取消暂存、与rm的交互以及失败情况。
+
+# 包含官方定义的正则表达式，这对于检查 `status` 命令的输出很有用。
+I definitions.inc
+
+# --- 测试用例 1: 基本暂存功能 ---
+# 目标：测试一个新文件能否被成功添加到暂存区。
+
+# 1. 准备阶段：初始化一个新的 gitlet 仓库。
+> init
+<<<
+
+# 2. 准备阶段：在工作目录中创建一个名为 a.txt 的文件。
+#    它的内容来自于 testing/src/wug.txt。
++ a.txt wug.txt
+
+# 3. 执行阶段：运行 add 命令。我们期望它没有任何输出。
+> add a.txt
+<<<
+
+# 4. 验证阶段：运行 status 命令，检查 a.txt 是否出现在 "Staged Files" 区域。
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+a.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+
+# --- 测试用例 2: 覆盖已暂存的文件 ---
+# 目标：测试再次 add 一个已修改的文件时，新内容会覆盖旧的暂存内容。
+
+# 1. 准备阶段：修改 a.txt 的内容为 notwug.txt 的内容。
++ a.txt notwug.txt
+
+# 2. 执行阶段：再次运行 add 命令。
+> add a.txt
+<<<
+
+# 3. 验证阶段：提交当前暂存区的内容。
+> commit "committed second version of a.txt"
+<<<
+
+# 4. 验证阶段：检查工作目录中的 a.txt 是否与我们最后一次 add 的版本 (notwug.txt) 相同。
+#    如果覆盖成功，那么提交的版本就应该是 notwug.txt 的内容。
+= a.txt notwug.txt
+
+# --- 测试用例 3: 取消暂存 ---
+# 目标：测试当文件内容与当前 commit 相同时，add 命令会将其从暂存区移除。
+
+# 1. 准备阶段：初始化一个全新的仓库来进行隔离测试。
+> init
+<<<
+
+# 2. 准备阶段：创建 b.txt 并提交它的第一个版本。
++ b.txt wug.txt
+> add b.txt
+<<<
+> commit "version 1 of b.txt"
+<<<
+
+# 3. 准备阶段：将 b.txt 修改为第二个版本并暂存它。
++ b.txt notwug.txt
+> add b.txt
+<<<
+
+# 4. 准备阶段：现在，再把 b.txt 的内容改回最初始的版本。
++ b.txt wug.txt
+
+# 5. 执行阶段：此时运行 add b.txt。根据规则，因为它和当前 commit 的版本相同，
+#    它应该被从暂存区移除。
+> add b.txt
+<<<
+
+# 6. 验证阶段：运行 status，"Staged Files" 区域现在应该是空的。
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+
+# --- 测试用例 4: 与 `rm` 命令的交互 ---
+# 目标：测试 add 一个被标记为“待删除”的文件，能否正确更新其状态。
+
+# 1. 准备阶段：初始化一个新仓库。
+> init
+<<<
+
+# 2. 准备阶段：创建并提交 c.txt。
++ c.txt wug.txt
+> add c.txt
+<<<
+> commit "version 1 of c.txt"
+<<<
+
+# 3. 准备阶段：运行 rm 命令，将 c.txt 标记为“待删除”。
+> rm c.txt
+<<<
+
+# 4. 准备阶段：重新在工作区创建 c.txt 文件。
++ c.txt wug.txt
+
+# 5. 执行阶段：运行 add c.txt。
+> add c.txt
+<<<
+
+# 6. 验证阶段：运行 status。c.txt 应该不再出现在 "Removed Files" 区域，
+#    而是回到了 "Staged Files" 区域（因为它和commit内容相同，所以暂存区应该是空的）。
+#    更准确地说，因为我们把它恢复成了和commit里完全一样的版本，所以它应该从两个暂存区都消失。
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+
+# --- 测试用例 5: 失败情况 ---
+# 目标：测试 add 一个不存在的文件时，能否打印正确的错误信息。
+
+# 1. 准备阶段：初始化一个新仓库。
+> init
+<<<
+
+# 2. 执行阶段：尝试 add 一个不存在的文件。
+> add non_existent_file.txt
+File does not exist.
+<<<

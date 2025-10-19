@@ -1,0 +1,36 @@
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "base"
+<<<
+> merge non-existent-branch
+A branch with that name does not exist.
+<<<
+> merge master
+Cannot merge a branch with itself.
+<<<
+> branch dev
+<<<
+> checkout dev
+<<<
++ b.txt notwug.txt
+> add b.txt
+<<<
+> commit "add b.txt on dev"
+<<<
++ c.txt wug.txt
+> checkout master
+<<<
++ d.txt wug.txt
+> add d.txt
+<<<
+> commit "add d.txt on master"
+<<<
+> merge dev
+
+<<<
+
+
+

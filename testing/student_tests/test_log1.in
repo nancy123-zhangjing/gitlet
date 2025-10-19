@@ -1,0 +1,27 @@
+I definitions.inc
+> init
+<<<
++ f1.txt wug.txt
+> add f1.txt
+<<<
+> commit "first"
+<<<
++ f2.txt notwug.txt
+> add f2.txt
+<<<
+> commit "second"
+<<<
+> log
+===
+${COMMIT_HEAD}
+second
+
+===
+${COMMIT_HEAD}
+first
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

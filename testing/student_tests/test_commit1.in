@@ -1,0 +1,33 @@
+#verify a new commit inherit a old commit files
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "add a.txt v1"
+<<<
++ b.txt notwug.txt
+> add b.txt
+<<<
+> commit "add b.txt"
+<<<
++ a.txt notwug.txt
+> log
+===
+${COMMIT_HEAD}
+add b.txt
+
+===
+${COMMIT_HEAD}
+add a.txt v1
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+D LATEST_UID "${1}"
+> checkout ${LATEST_UID} -- a.txt
+<<<
+= a.txt wug.txt

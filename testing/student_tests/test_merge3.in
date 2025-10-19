@@ -1,0 +1,35 @@
+I definitions.inc
+> init
+<<<
+> branch dev
+<<<
+> checkout dev
+<<<
++ conflict.txt wug.txt
+> add conflict.txt
+<<<
+> commit "add conflicting file on dev"
+<<<
+> checkout master
+<<<
++ conflict.txt notwug.txt
+> merge dev
+There is an untracked file in the way; delete it, or add and commit it first.
+<<<
+= conflict.txt notwug.txt
+> status
+=== Branches ===
+dev
+*master
+
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+conflict.txt
+
+<<<

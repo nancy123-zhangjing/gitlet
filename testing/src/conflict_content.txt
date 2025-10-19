@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+This is the master version.
+=======
+This is the dev version.
+>>>>>>>

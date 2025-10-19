@@ -1,0 +1,11 @@
+> init
+<<<
+> commit "some message"
+No changes added to the commit.
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit ""
+Please enter a commit message.
+<<<

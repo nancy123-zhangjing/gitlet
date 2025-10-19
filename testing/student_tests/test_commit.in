@@ -1,0 +1,32 @@
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "first commit with a.txt"
+<<<
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+> log
+===
+${COMMIT_HEAD}
+first commit with a.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

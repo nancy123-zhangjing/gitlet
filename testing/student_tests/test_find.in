@@ -1,0 +1,35 @@
+I definitions.inc
+> init
+<<<
++ f1.txt wug.txt
+> add f1.txt
+<<<
+> commit "first message"
+<<<
++ f2.txt notwug.txt
+> add f2.txt
+<<<
+> commit "first message"
+<<<
+> log
+===
+${COMMIT_HEAD}
+first message
+
+===
+${COMMIT_HEAD}
+first message
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+D UID_B1 "${1}"
+D UID_B2 "${2}"
+> find "first message"
+(${UID_B1}\n${UID_B2}|${UID_B2}\n${UID_B1})
+<<<*
+>find "a message that does not exist"
+Found no commit with that message.
+<<<

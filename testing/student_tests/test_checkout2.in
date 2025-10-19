@@ -1,0 +1,38 @@
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "v1 of a.txt"
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "v2 of a.txt"
+<<<
+> log
+===
+${COMMIT_HEAD}
+v2 of a.txt
+
+===
+${COMMIT_HEAD}
+v1 of a.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+D V1_UID "${2}"
+D v "${3}"
+>checkout ${V1_UID} -- a.txt
+<<<
+= a.txt wug.txt
+> checkout 123456 -- a.txt
+No commit with that id exists.
+<<<
+>checkout ${v} -- a.txt
+File does not exist in that commit.
+<<<

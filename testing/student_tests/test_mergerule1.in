@@ -1,0 +1,42 @@
+I definitions.inc
+# Rule 1: Modified in given, not in current -> checkout from given & stage.
+> init
+<<<
++ file.txt wug.txt
+> add file.txt
+<<<
+> commit "base"
+<<<
+> branch other
+<<<
++ master-dummy.txt dummy.txt
+> add master-dummy.txt
+<<<
+> commit "master changes to create divergence"
+<<<
+> checkout other
+<<<
++ file.txt notwug.txt
+> add file.txt
+<<<
+> commit "other changes"
+<<<
+> checkout master
+<<<
+> merge other
+<<<
+> status
+=== Branches ===
+*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+= file.txt notwug.txt

@@ -1,0 +1,7 @@
+#init命令测试
+> init
+<<<
+E .gitlet
+> init
+A Gitlet version-control system already exists in the current directory.
+<<<
