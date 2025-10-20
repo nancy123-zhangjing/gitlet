@@ -126,7 +126,7 @@ clear用于清空暂存区
 
 序列化和反序列化，以及生成hash值的工具箱
 
-### CommitManager.java
+### MainLogicalTool.java
 
 包含一些为了简化Repository类的逻辑而封装的函数
 
