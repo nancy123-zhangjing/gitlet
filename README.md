@@ -150,7 +150,7 @@ public static void initTool() 将repository中init的具体逻辑进行封装
 
 与实际git类似，在当前目录中创建一个新的 Gitlet 版本控制系统。该系统将自动以一次提交（initial commit)启动
 
-**add [file name] **
+**add [file name]**
 
 创建一个文件副本，添加到暂存区
 
